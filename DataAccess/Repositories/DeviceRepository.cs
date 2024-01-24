@@ -25,7 +25,7 @@ namespace DataAccess.Repositories
 
         public async Task<ICollection<Device>> GetByBrand(string brand)
         {
-            return await _context.Devices.Where(d => d.Brand.Equals(brand, StringComparison.InvariantCultureIgnoreCase)).ToListAsync();
+            return await _context.Devices.Where(d => d.Brand.ToLower() == brand.ToLower()).ToListAsync();
         }
 
         public async Task<Device> CreateDevice(Device device)
