@@ -21,8 +21,7 @@ namespace DevicesApi.DataAccess.UnitTests
             _deviceRepository = new DeviceRepository(new DeviceDbContext(options.Options));
         }
 
-        [Theory]
-        [AutoData]
+        [Theory, AutoData]
         public async Task CreateDevice_ShouldPopulateId(Device device)
         {
             await _deviceRepository.CreateDevice(device, _ct);
@@ -30,8 +29,7 @@ namespace DevicesApi.DataAccess.UnitTests
             device.Id.Should().NotBe(0);
         }
 
-        [Theory]
-        [AutoData]
+        [Theory, AutoData]
         public async Task CreateDevice_ShouldPopulateCreationTime(Device device)
         {
             // Arrange

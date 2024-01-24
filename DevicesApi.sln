@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevicesApi.DataAccess.UnitT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevicesApi.Application.UnitTests", "DevicesApi.Application.UnitTests\DevicesApi.Application.UnitTests.csproj", "{BD721CA8-EC5A-4AC9-94F0-6B45E43E2580}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevicesApi.Api.UnitTests", "DevicesApi.Api.UnitTests\DevicesApi.Api.UnitTests.csproj", "{20C8388D-0B05-437C-9211-0D480D9FD9B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{BD721CA8-EC5A-4AC9-94F0-6B45E43E2580}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD721CA8-EC5A-4AC9-94F0-6B45E43E2580}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD721CA8-EC5A-4AC9-94F0-6B45E43E2580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20C8388D-0B05-437C-9211-0D480D9FD9B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20C8388D-0B05-437C-9211-0D480D9FD9B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20C8388D-0B05-437C-9211-0D480D9FD9B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20C8388D-0B05-437C-9211-0D480D9FD9B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +60,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{379A9879-BA2A-419C-AD57-A4AFBBE4F593} = {C370F14B-104E-4D77-95AA-6C36F870B39A}
 		{BD721CA8-EC5A-4AC9-94F0-6B45E43E2580} = {C370F14B-104E-4D77-95AA-6C36F870B39A}
+		{20C8388D-0B05-437C-9211-0D480D9FD9B6} = {C370F14B-104E-4D77-95AA-6C36F870B39A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F0851954-63D6-44B5-AA0B-C47E011866F9}

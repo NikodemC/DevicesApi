@@ -1,16 +1,24 @@
 using DevicesApi.Extensions;
 
-var builder = WebApplication.CreateBuilder(args);
-builder.RegisterServices();
+namespace DevicesApi;
 
-var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
+public class Program
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    public static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
+        builder.RegisterServices();
 
-app.UseHttpsRedirection();
-app.RegisterEndpointDefinitions();
-app.Run();
+        var app = builder.Build();
+
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
+
+        app.UseHttpsRedirection();
+        app.RegisterEndpointDefinitions();
+        app.Run();
+    }
+}
