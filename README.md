@@ -85,7 +85,6 @@ GET /api/devices?brand=mybrand
 - **Create Device:**
 POST /api/devices
 Request Body:
-```json
 {
   "Name": "NewDevice",
   "Brand": "NewBrand"
@@ -94,7 +93,6 @@ Request Body:
 - **Update Device:**
 PUT /api/devices/123
 Request Body:
-```json
 {
 "Name": "UpdatedDeviceName",
 "Brand": "UpdatedBrand"
@@ -103,7 +101,6 @@ Request Body:
 - **Patch Device:**
 PATCH /api/devices/123
 Request Body:
-```json
 [
   { "op": "replace", "path": "/name", "value": "NewName" },
   { "op": "replace", "path": "/brand", "value": "NewBrand" }
