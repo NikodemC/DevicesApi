@@ -1,6 +1,6 @@
 # Simple Device API with Swagger
 
-This is a simple API for managing devices, exposing endpoints for CRUD operations on devices. The API documentation is powered by Swagger for easy exploration and testing.
+This is a simple API for managing devices, exposing endpoints for CRUD operations on devices. This API is powered by Swagger for easy exploration and testing.
 
 ## Endpoints
 
@@ -70,9 +70,6 @@ Delete a device by its unique identifier.
 
 Explore and test the API interactively using Swagger. Visit the Swagger UI at `/swagger` when running the application.
 
-Example:
-- [Swagger UI](http://your-api-url/swagger)
-
 ## Usage
 
 To interact with this API, you can use various tools like `curl`, `Postman`, or your preferred HTTP client. Make sure to follow the provided endpoint descriptions for request formats.
@@ -88,14 +85,16 @@ GET /api/devices?brand=mybrand
 - **Create Device:**
 POST /api/devices
 Request Body:
+```json
 {
-"Name": "NewDevice",
-"Brand": "NewBrand"
+  "Name": "NewDevice",
+  "Brand": "NewBrand"
 }
 
 - **Update Device:**
 PUT /api/devices/123
 Request Body:
+```json
 {
 "Name": "UpdatedDeviceName",
 "Brand": "UpdatedBrand"
@@ -104,9 +103,10 @@ Request Body:
 - **Patch Device:**
 PATCH /api/devices/123
 Request Body:
+```json
 [
-{ "op": "replace", "path": "/name", "value": "NewName" },
-{ "op": "replace", "path": "/brand", "value": "NewBrand" }
+  { "op": "replace", "path": "/name", "value": "NewName" },
+  { "op": "replace", "path": "/brand", "value": "NewBrand" }
 ]
 
 - **Delete Device:**
