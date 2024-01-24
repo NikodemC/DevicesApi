@@ -4,11 +4,11 @@ namespace Application.Abstractions
 {
     public interface IDeviceRepository
     {
-        Task<ICollection<Device>> GetAllDevices();
-        Task<Device?> GetDeviceById(int deviceId);
-        Task<ICollection<Device>> GetByBrand(string brand);
-        Task<Device> CreateDevice(Device device);
-        Task<Device?> UpdateDevice(Device device);
-        Task DeleteDevice(int deviceId);
+        Task<ICollection<Device>> GetAllDevices(CancellationToken cancellationToken);
+        Task<Device?> GetDeviceById(int deviceId, CancellationToken cancellationToken);
+        Task<ICollection<Device>> GetByBrand(string brand, CancellationToken cancellationToken);
+        Task<Device> CreateDevice(Device device, CancellationToken cancellationToken);
+        Task<Device?> UpdateDevice(Device device, CancellationToken cancellationToken);
+        Task DeleteDevice(int deviceId, CancellationToken cancellationToken);
     }
 }

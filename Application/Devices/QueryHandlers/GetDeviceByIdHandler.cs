@@ -13,6 +13,6 @@ namespace Application.Devices.QueryHandlers
             => _deviceRepository = deviceRepository;
 
         public async Task<Device?> Handle(GetDeviceById request, CancellationToken cancellationToken) 
-            => await _deviceRepository.GetDeviceById(request.Id);
+            => await _deviceRepository.GetDeviceById(request.Id, cancellationToken);
     }
 }

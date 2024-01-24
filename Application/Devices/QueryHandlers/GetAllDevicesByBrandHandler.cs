@@ -13,6 +13,6 @@ namespace Application.Devices.QueryHandlers
             => _deviceRepository = deviceRepository;
 
         public async Task<ICollection<Device>> Handle(GetAllDevicesByBrand request, CancellationToken cancellationToken) 
-            => await _deviceRepository.GetByBrand(request.Brand);
+            => await _deviceRepository.GetByBrand(request.Brand, cancellationToken);
     }
 }

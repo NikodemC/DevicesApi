@@ -13,22 +13,22 @@ namespace DataAccess.Repositories
             _context = context;
         }
 
-        public async Task<ICollection<Device>> GetAllDevices()
+        public async Task<ICollection<Device>> GetAllDevices(CancellationToken cancellationToken)
         {
             return await _context.Devices.ToListAsync();
         }
 
-        public async Task<Device?> GetDeviceById(int deviceId)
+        public async Task<Device?> GetDeviceById(int deviceId, CancellationToken cancellationToken)
         {
             return await _context.Devices.FirstOrDefaultAsync(p => p.Id == deviceId);
         }
 
-        public async Task<ICollection<Device>> GetByBrand(string brand)
+        public async Task<ICollection<Device>> GetByBrand(string brand, CancellationToken cancellationToken)
         {
             return await _context.Devices.Where(d => d.Brand.ToLower() == brand.ToLower()).ToListAsync();
         }
 
-        public async Task<Device> CreateDevice(Device device)
+        public async Task<Device> CreateDevice(Device device, CancellationToken cancellationToken)
         {
             device.CreationTime = DateTime.Now;
             _context.Devices.Add(device);
@@ -36,7 +36,7 @@ namespace DataAccess.Repositories
             return device;
         }
 
-        public async Task<Device?> UpdateDevice(Device device)
+        public async Task<Device?> UpdateDevice(Device device, CancellationToken cancellationToken)
         {
             var deviceToUpdate = await _context.Devices.FirstOrDefaultAsync(p => p.Id == device.Id);
 
@@ -49,7 +49,7 @@ namespace DataAccess.Repositories
             return deviceToUpdate;
         }
 
-        public async Task DeleteDevice(int deviceId)
+        public async Task DeleteDevice(int deviceId, CancellationToken cancellationToken)
         {
             var deviceToDelete = await _context.Devices.FirstOrDefaultAsync(p => p.Id == deviceId);
 

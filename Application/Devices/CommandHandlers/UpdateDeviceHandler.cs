@@ -15,7 +15,7 @@ namespace Application.Devices.CommandHandlers
         public async Task<Device?> Handle(UpdateDevice request, CancellationToken cancellationToken)
         {
             var device = new Device() { Id = request.Id, Brand = request.DeviceBrand, Name = request.DeviceName };
-            var updatedDevice = await _deviceRepository.UpdateDevice(device);
+            var updatedDevice = await _deviceRepository.UpdateDevice(device, cancellationToken);
             return updatedDevice;
         }
     }
