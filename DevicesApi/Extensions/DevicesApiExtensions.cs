@@ -1,6 +1,7 @@
 ﻿using Application.Abstractions;
 using DataAccess;
 using DataAccess.Repositories;
+using DevicesApi.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
 namespace DevicesApi.Extensions
@@ -14,6 +15,20 @@ namespace DevicesApi.Extensions
             builder.AddSwagger();
             builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
             builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
+        }
+
+        public static void RegisterEndpointDefinitions(this WebApplication app)
+        {
+            var endpointDefinitions = typeof(Program).Assembly
+                .GetTypes()
+                .Where(t => t.IsAssignableTo(typeof(IEndpointDefinition)) && t is { IsAbstract: false, IsInterface: false })
+                .Select(Activator.CreateInstance)
+                .Cast<IEndpointDefinition>();
+
+            foreach (var endpoint in endpointDefinitions)
+            {
+                endpoint.RegisterEndpoints(app);
+            }
         }
 
         private static void AddDbContext(this WebApplicationBuilder builder)
@@ -30,6 +45,7 @@ namespace DevicesApi.Extensions
         {
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGenNewtonsoftSupport();
         }
     }
 }
