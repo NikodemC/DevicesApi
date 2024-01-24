@@ -12,6 +12,6 @@ namespace Application.Devices.CommandHandlers
             => _deviceRepository = deviceRepository;
 
         public async Task Handle(DeleteDevice request, CancellationToken cancellationToken) 
-            => await _deviceRepository.DeleteDevice(request.Id);
+            => await _deviceRepository.DeleteDevice(request.Id, cancellationToken);
     }
 }
